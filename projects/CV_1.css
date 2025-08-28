@@ -4,8 +4,15 @@
     color: white;
     text-align: left;
     background-color: maroon;
-    border-width: 20px; 
-    border-color: black;
     margin-left: 300px;
-    margin-top: -100px;
+    margin-top: -250px;
+}
+
+
+.AboutMe{
+    width: 75px;
+    height: 45px;
+}
+.Line{
+    margin-top: 150px;
 }
