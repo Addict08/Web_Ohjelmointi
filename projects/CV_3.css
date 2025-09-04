@@ -7,8 +7,5 @@
     height: 45px;
 }
 p{
-    size: 5px;
-    text-align: justify;
-    margin-left: 50px;
-    margin-right: 50px;
+    font-size: 20px;
 }
