@@ -13,6 +13,9 @@
         echo "<li>" . $i;
     }
     echo "</ul>";
+    $i = "Hello";
+    $x = 5;
+        echo $i*$x; 
     ?>
   </body>
 </html>
