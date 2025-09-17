@@ -12,10 +12,11 @@
     for ($i = 1; $i <= 10; $i++) {
         echo "<li>" . $i;
     }
-    echo "</ul>";
-    $i = "Hello";
-    $x = 5;
-        echo $i*$x; 
+    $i = 1;
+while ($i < 5) {
+  echo "<ul>" "Hello, World!<br>";
+  $i++;
+}
     ?>
   </body>
 </html>
