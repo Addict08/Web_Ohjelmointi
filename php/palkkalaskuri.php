@@ -11,3 +11,15 @@
     </form>
   </body>
 </html>
+
+
+
+
+
+
+
+Lisää lomakkeeseen käyttäjältä kysyttävät kentät viikonloppulisä ja 
+viikonloppujen määrä ja muokkaa php-koodia niin, että sovellus tulostaa 
+Lähetä-painiketta painamalla seuraavat tiedot:
+Yhteispalkka ilman viikonloppulisiä: määrä
+Yhteispalkka viikonloppulisien kanssa: määrä
