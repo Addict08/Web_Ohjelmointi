@@ -7,6 +7,8 @@
     <form action="palkka.php" method="post">
       Tuntipalkka: <input type="text" name="tuntipalkka"> <br>
       Tuntimäärä: <input type="text" name="tuntimaara"> <br>
+      Viikonloppulisa: <input type="text" name="viikonloppulisa"> <br>
+      Viikonloppu_maara: <input type="text" name="viikonloppu_maara"> <br>
       <input type="submit" value="Lähetä">
     </form>
   </body>
@@ -14,12 +16,3 @@
 
 
 
-
-
-
-
-Lisää lomakkeeseen käyttäjältä kysyttävät kentät viikonloppulisä ja 
-viikonloppujen määrä ja muokkaa php-koodia niin, että sovellus tulostaa 
-Lähetä-painiketta painamalla seuraavat tiedot:
-Yhteispalkka ilman viikonloppulisiä: määrä
-Yhteispalkka viikonloppulisien kanssa: määrä
