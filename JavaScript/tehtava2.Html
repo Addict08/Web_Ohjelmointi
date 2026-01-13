@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <title>Ehtolauseet ja silmukat</title>
+</head>
+<body>
+    <h1>Tehtävä 2</h1>
+    <h2>Kertotaulu:</h2>
+    <ul id="numerolista"></ul>
+
+    <script>
+        let temp = 14;
+
+        if (temp <= 20 && temp >= 0){
+        console.log ("Good weather for a walk!")
+        }   else if (temp > 20){
+        console.log ("Warm!")
+        }   else {
+        console.log ("Freezing!")
+        }
+
+        for (let i = 0; i < 10; i++) {
+            let ListItem = document.createElement("li");
+            ListItem.textContent = "Number " + i;
+            numerolista.appendChild(ListItem);
+        }
+
+
+        // Kirjoita koodisi tähän
+    </script>
+</body>
+</html>
