@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Palkkalaskuri</title>
+</head>
+<body>
+    <p>Syötä tarvittavat tiedot.</p>
+    
+    <label>Mikä on Tuntipalkan määrä:</label>
+    <input type="number" id="TuntiPalkka" placeholder="Tuntipalkka määrä">
+    <br>
+    <label>Tehtyjen tuntien määrä:</label>
+    <input type="number" id="tunnit" placeholder="Tunti määrä">
+    <br>
+    <label>Mikä on veroprosentin suuruus:</label>
+    <input type="number" id="vero" placeholder="Veroprosentti">
+    <br>
+    <button onclick="suoritaLaskenta()">Laske</button>
+    <p>Tulos: <span id="tulos">-</span></p>
+
+<script>
+function suoritaLaskenta() {
+    // 1. Hae arvot ja muuta numeroiksi
+    let tuntipalkka = Number(document.getElementById("TuntiPalkka").value);
+    let tunnit = Number(document.getElementById("tunnit").value);
+    let veroprosentti = Number(document.getElementById("vero").value);
+    let tulosElem = document.getElementById("tulos");
+
+    // 2. Validointi
+    if (
+        isNaN(tuntipalkka) || isNaN(tunnit) || isNaN(veroprosentti) ||
+        tuntipalkka < 0 || tunnit < 0 || veroprosentti < 0
+    ) {
+        tulosElem.innerText = "Virhe: Syötä VAIN positiivisia numeroita.";
+        tulosElem.style.color = "red";
+        return;
+    }
+
+    // 3. Laskukaavat
+    let brutto = tuntipalkka * tunnit;
+    let vero = brutto * (veroprosentti / 100);
+    let netto = brutto - vero;
+
+    // 4. Päivitä HTML ja väri
+    tulosElem.innerText = "Brutto: " + brutto.toFixed(2) + " €, Vero: " + vero.toFixed(2) + " €, Netto: " + netto.toFixed(2) + " €";
+    tulosElem.style.color = netto < 100 ? "red" : "green";
+}
+</script>
+</body>
+</html>

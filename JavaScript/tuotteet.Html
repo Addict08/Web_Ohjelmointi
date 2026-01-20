@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tuotteet</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        #nav-lista {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background-color: #333;
+            overflow: hidden;
+        }
+        #nav-lista li {
+            float: left;
+        }
+        #nav-lista li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        #nav-lista li a:hover {
+            background-color: #111;
+        }
+        .active {
+            background-color: #aa0420 !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tervetuloa Tuotesivulle</h1>
+    <nav>
+        <ul id="nav-lista"></ul>
+    </nav>
+    <div style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+        <h3>Tuotteet</h3>
+        <p>Osta meiltä hyvää ja edullista.</p>
+    </div>
+    <div id="Tuotteet"></div>
+    <script>
+        const Tuote = {
+            Tuote: "Esimerkki Tuote_1",
+            Hinta: 19.99 + " €",
+            Määrä: 500 + " Ml",
+            Kilohinta: 36.98 + " €/l"
+        }
+        const Tuote2 = {
+            Tuote: "Esimerkki Tuote_2",
+            Hinta: 1.99 + " €",
+            Määrä: 150 + " g",
+            Kilohinta: 13.27 + " €/kg"
+        }  
+        const Tuote3 = {
+            Tuote: "Esimerkki Tuote_3",
+            Hinta: 3.75 + " €",
+            Määrä: 2.5 + " l",
+            Kilohinta: 1.5 + " €/l"
+        }
+        const Tuote4 = {
+            Tuote: "Esimerkki Tuote_4",
+            Hinta: 4.85 + " €",
+            Määrä:  800 + " g",
+            Kilohinta: 6.06 + " €/kg"
+        }
+        const sivut = [
+            { nimi: "Takaisin Etusivulle", url: "navigaatio.Html" },
+            { nimi: "Tuotteet", url: "tuotteet.Html" },
+            { nimi: "Yhteystiedot", url: "yhteystiedot.Html" }
+        ];
+        const Tuotelista = [Tuote, Tuote2, Tuote3, Tuote4];
+
+        const nykyinenSivu = window.location.pathname.split("/").pop();
+        const navUl = document.getElementById("nav-lista");
+
+        // Build navigation
+        sivut.forEach(function(sivu) {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = sivu.url;
+            a.textContent = sivu.nimi;
+            if (sivu.url === nykyinenSivu) {
+                a.classList.add("active");
+            }
+            li.appendChild(a);
+            navUl.appendChild(li);
+        });
+
+        // Render Tuotelista only once
+        const container = document.getElementById("Tuotteet");
+        Tuotelista.forEach(tieto => {
+            const div = document.createElement("div");
+            div.style.marginBottom = "16px";
+            div.innerHTML = `
+                <strong>${tieto.Tuote}</strong><br>
+                ${tieto.Hinta ? tieto.Hinta + "<br>" : ""}
+                Määrä: <a href="mailto:${tieto.Määrä}">${tieto.Määrä}</a><br>
+                Hinta: <a href="tel:${tieto.Kilohinta}">${tieto.Kilohinta}</a>
+            `;
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html>

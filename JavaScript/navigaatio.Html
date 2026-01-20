@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Etusivu</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+
+/* Navigaation tyylit valmiina */
+#nav-lista {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #333;
+    overflow: hidden;
+}
+
+#nav-lista li {
+    float: left;
+}
+
+#nav-lista li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#nav-lista li a:hover {
+    background-color: #111;
+}
+
+/* Tätä luokkaa sinun pitää käyttää JavaScriptissä */
+.active {
+    background-color: #aa0420 !important;
+}
+    </style>
+</head>
+
+<body>
+<h1>Tervetuloa Etusivulle!</h1>
+
+<nav>
+    <ul id="nav-lista"></ul>
+</nav>
+
+<div style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+    <h3>Etusivu</h3>
+    <p>Olemme yritys, joka on omistautunut tarjoamaan korkealaatuisia elintarvikkeita, jotka on valmistettu huolella, rehellisesti ja intohimolla huippuosaamiseen. 
+        Huolellisesti valituista ainesosista vastuullisiin tuotantotapoihin keskitymme toimittamaan tuotteita, 
+        jotka täyttävät korkeimmat laatu-, turvallisuus- ja makustandardit. Sitoumuksemme on tarjota terveellisiä ja maukkaita elintarvikkeita, joihin asiakkaamme voivat luottaa ja joista he voivat nauttia joka päivä.
+        Yhdistämällä perinteet, innovaatiot ja syvän kunnioituksen laatua kohtaan pyrimme ravitsemaan yhteisöjä ja rakentamaan kestäviä suhteita kumppaneidemme ja kuluttajiemme kanssa. </p>
+    <p>Ole hyvä ja tutustu meidän tuotteisiimme meidän "Tuotteet" sivulla,</p>
+</div>
+
+<script>
+    // 1. DATA: Määritellään navigaation linkit
+    const sivut = [
+        { nimi: "Etusivu", url: "navigaatio.Html" },
+        { nimi: "Tuotteet", url: "tuotteet.Html" },
+        { nimi: "Yhteystiedot", url: "yhteystiedot.Html" }
+    ];   
+    // 2. APUMUUTTUJA: Haetaan nykyisen sivun tiedostonimi osoiteriviltä
+        // (Vastaa PHP:n basename($_SERVER['PHP_SELF']) -komentoa)
+        const nykyinenSivu = window.location.pathname.split("/").pop();
+
+        // 3. HAE ELEMENTTI: Mihin navigaatio tulostetaan?
+        const navUl = document.getElementById("nav-lista");
+
+        // 4. SILMUKKA: Käy sivut-taulukko läpi
+         sivut.forEach(function(sivu) {
+           
+// --- KIRJOITA KOODISI TÄHÄN ALLE ---
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = sivu.url;
+    a.textContent = sivu.nimi;
+
+    // Add 'active' class if this is the current page
+    if (sivu.url === nykyinenSivu) {
+        a.classList.add("active");
+    }
+
+    // Append <a> to <li>, and <li> to navUl
+    li.appendChild(a);
+    navUl.appendChild(li);
+});
+</script>
+</body>
+</html>

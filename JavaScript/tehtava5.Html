@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Car</title>
+</head>
+<body>
+    <script>
+    const car = {
+        make: "Chevrolet",
+        model: "Impala",
+        year: 1967,
+        running: false,
+        start: function() {
+            this.running = true;
+            console.log("The car started");
+            document.getElementById("car-status").innerText = "Running: " + this.running;
+        }
+    };
+    
+    // Print car info to the page
+    document.body.innerHTML += `
+        <div>
+            <h2>Car Info</h2>
+            <p>Make: ${car.make}</p>
+            <p>Model: ${car.model}</p>
+            <p>Year: ${car.year}</p>
+            <p id="car-status">Running: ${car.running}</p>
+            <button onclick="car.start()">Start Car</button>
+        </div>
+    `;
+</script>
+</body>
+</html>
